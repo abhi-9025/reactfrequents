@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+
 import './App.css';
+import ListBox from './component/ListBox';
+import Searchbar from './component/SearchBar';
 
 function App() {
+
+  const dataPromise=async(query,signal)=>await fetch(`https://swapi.dev/api/people/?search=${query}`,{signal})
+
+  const transformData=(data)=>data.results
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+     <Searchbar
+      id="personName"
+      name="personName"
+      placeholder="Enter person Name"
+      label="Enter Person Name"
+      maxItems={5}
+      listBox={(lists)=><ListBox items={lists}/>}
+      transformData={transformData}
+      promise={dataPromise}
+      debounceWait={400}
+     />
     </div>
   );
 }
