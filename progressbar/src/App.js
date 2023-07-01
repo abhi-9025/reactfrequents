@@ -6,6 +6,7 @@ const totalTime=10000
 const interval=1000
 const totalCycle=totalTime/interval
 const progressMade=(interval/totalTime)*100
+// kept outside to because to rerendering
 function App() {
   const [progress,setProgrss]=useState(0)
   const timer=useRef(0)
