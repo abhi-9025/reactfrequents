@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.tab{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: red;
+    color: white;
+}
+.top{
+    border: 1px solid black;
+}
+.tabItem{
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+    padding: 15px;
+}
+.tabItem.active{
+    background-color: gray;
+}
+.contentContainer{
+    padding: 10px;
+    background-color: gray;
+}
+.contentItem{
+    padding: 10px;
+}
